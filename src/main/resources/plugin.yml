@@ -1,0 +1,9 @@
+name: ItemsForFactionsGuild
+main: pl.stillcraft.grzegorzekkk.itemsforfactionsguild.ItemsForFactionsGuild
+version: 1.0
+author: grzegorzekkk
+softdepend: [Factions]
+commands:
+  iffg:
+    description: ItemsForFactionsGuild plugin main command
+    usage: /<command>

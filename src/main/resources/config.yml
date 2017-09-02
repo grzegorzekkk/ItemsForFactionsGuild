@@ -1,0 +1,17 @@
+# This is ItemsForFactionGuild configuration file
+# Use format specified below to add more required items
+# to create a new factions guild by a player
+#
+# - <material_name>:<numeric_data>, <quantity>
+# i.e
+# - wood:1, 10
+#
+# You can find all materialnames here:
+# https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+#
+not_enough_msg: '&4Not enough items to create a Faction. Get more: '
+required:
+  items:
+  - wood:1, 5
+  - diamond, 10
+  - obsidian, 20
