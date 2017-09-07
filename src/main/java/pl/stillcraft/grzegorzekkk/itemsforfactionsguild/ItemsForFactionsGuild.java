@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class ItemsForFactionsGuild extends JavaPlugin {
 
-    public static JavaPlugin instance;
+    private static JavaPlugin instance;
 
     @Override
     public void onEnable() {
@@ -46,4 +46,9 @@ public class ItemsForFactionsGuild extends JavaPlugin {
 
         CommandManager.addComand(Arrays.asList("reload", "r"), new ReloadCMD());
     }
+
+    public static JavaPlugin getIffgInstance() {
+        return instance;
+    }
+
 }

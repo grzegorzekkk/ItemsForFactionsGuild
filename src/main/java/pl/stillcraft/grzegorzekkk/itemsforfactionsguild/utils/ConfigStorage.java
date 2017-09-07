@@ -31,8 +31,8 @@ public class ConfigStorage {
      */
     public static boolean loadConfig() {
 
-        ItemsForFactionsGuild.instance.reloadConfig();
-        config = ItemsForFactionsGuild.instance.getConfig();
+        ItemsForFactionsGuild.getIffgInstance().reloadConfig();
+        config = ItemsForFactionsGuild.getIffgInstance().getConfig();
 
         config.addDefault("not_enough_msg", "&cNot enough items to create a Faction. Get more: ");
         String[] exampleItems = {"WOOD, 5", "DIAMOND, 10", "OBSIDIAN, 20"};
@@ -49,7 +49,7 @@ public class ConfigStorage {
      * Creates default config file
      */
     public static void createConfig() {
-        ItemsForFactionsGuild.instance.saveDefaultConfig();
+        ItemsForFactionsGuild.getIffgInstance().saveDefaultConfig();
     }
 
     private static boolean loadItems() {
@@ -81,7 +81,7 @@ public class ConfigStorage {
             ConsoleLogger.info(ChatColor.YELLOW + i.getType().name() + ", " + i.getAmount());
         }
 
-        return (items.isEmpty()) ? false : true;
+        return !items.isEmpty();
     }
 
     private static boolean loadMessages() {
