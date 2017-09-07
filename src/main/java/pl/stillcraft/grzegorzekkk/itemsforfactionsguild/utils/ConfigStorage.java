@@ -9,7 +9,6 @@ import pl.stillcraft.grzegorzekkk.itemsforfactionsguild.ItemsForFactionsGuild;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Container class used to store Configuration entries of plugin.
@@ -20,7 +19,6 @@ public class ConfigStorage {
     private static FileConfiguration config;
     private static List<ItemStack> items;
     private static String msg;
-    private static Logger log = ItemsForFactionsGuild.log;
 
     private ConfigStorage() {
         throw new IllegalStateException("Utility class");
@@ -59,7 +57,7 @@ public class ConfigStorage {
 
         List<String> rawItems = config.getStringList("required.items");
 
-        log.info(ChatColor.YELLOW + "Found items required to create guild:");
+        ConsoleLogger.info(ChatColor.YELLOW + "Found items required to create guild:");
 
         // Loop through all items found in configuration
         for (String rawItem : rawItems) {
@@ -80,7 +78,7 @@ public class ConfigStorage {
             }
 
             items.add(i);
-            log.info(ChatColor.YELLOW + i.getType().name() + ", " + i.getAmount());
+            ConsoleLogger.info(ChatColor.YELLOW + i.getType().name() + ", " + i.getAmount());
         }
 
         return (items.isEmpty()) ? false : true;

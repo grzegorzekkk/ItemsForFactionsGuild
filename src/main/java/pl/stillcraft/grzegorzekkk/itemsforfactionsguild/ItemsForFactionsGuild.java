@@ -6,19 +6,18 @@ import pl.stillcraft.grzegorzekkk.itemsforfactionsguild.commands.CommandManager;
 import pl.stillcraft.grzegorzekkk.itemsforfactionsguild.commands.ReloadCMD;
 import pl.stillcraft.grzegorzekkk.itemsforfactionsguild.listeners.FactionCreateListener;
 import pl.stillcraft.grzegorzekkk.itemsforfactionsguild.utils.ConfigStorage;
+import pl.stillcraft.grzegorzekkk.itemsforfactionsguild.utils.ConsoleLogger;
 
 import java.util.Arrays;
-import java.util.logging.Logger;
 
 public class ItemsForFactionsGuild extends JavaPlugin {
 
-    public static Logger log;
     public static JavaPlugin instance;
 
     @Override
     public void onEnable() {
         instance = this;
-        log = getLogger();
+        ConsoleLogger.setLogger(getLogger());
 
         ConfigStorage.createConfig();
         ConfigStorage.loadConfig();
@@ -26,8 +25,8 @@ public class ItemsForFactionsGuild extends JavaPlugin {
         registerListeners();
         registerCommands();
 
-        log.info("Enabled ItemsForFactionsGuild!");
-        log.info("Plugin created by grzegorzekkk");
+        ConsoleLogger.info("Enabled ItemsForFactionsGuild!");
+        ConsoleLogger.info("Plugin created by grzegorzekkk");
     }
 
     @Override
@@ -35,7 +34,7 @@ public class ItemsForFactionsGuild extends JavaPlugin {
         HandlerList.unregisterAll(this);
         instance = null;
 
-        log.info("Disabled ItemsForFactionsGuild!");
+        ConsoleLogger.info("Disabled ItemsForFactionsGuild!");
     }
 
     private void registerListeners() {
