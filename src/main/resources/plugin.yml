@@ -1,9 +1,17 @@
-name: ItemsForFactionsGuild
-main: pl.stillcraft.grzegorzekkk.itemsforfactionsguild.ItemsForFactionsGuild
-version: 1.0
-author: grzegorzekkk
+name: ${project.name}
+main: ${project.groupId}.${project.artifactId}.${project.name}
+version: ${project.version}
+author: ${project.author}
 softdepend: [Factions]
 commands:
   iffg:
     description: ItemsForFactionsGuild plugin main command
     usage: /<command>
+permissions:
+  iffg.*:
+    description: Access to all admin commands.
+    children:
+      iffg.reload: true
+  iffg.reload:
+    description: Administrator command to reload configuration.
+    default: op

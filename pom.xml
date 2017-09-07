@@ -5,17 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.stillcraft.grzegorzekkk</groupId>
-    <artifactId>ItemsForFactionsGuild</artifactId>
+    <artifactId>itemsforfactionsguild</artifactId>
+    <name>ItemsForFactionsGuild</name>
     <version>1.0</version>
+
+    <properties>
+        <project.author>grzegorzekkk</project.author>
+        <project.java>1.8</project.java>
+    </properties>
 
     <repositories>
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
-        <repository>
-            <id>bungee-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
         <repository>
             <id>factions-repo</id>
@@ -29,6 +31,12 @@
             <artifactId>spigot-api</artifactId>
             <version>1.12.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>bungeecord-chat</artifactId>
+                    <groupId>net.md-5</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--Bukkit API-->
         <dependency>
@@ -58,12 +66,19 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${project.java}</source>
+                    <target>${project.java}</target>
                 </configuration>
             </plugin>
         </plugins>
-    </build>
 
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+    </build>
 
 </project>
