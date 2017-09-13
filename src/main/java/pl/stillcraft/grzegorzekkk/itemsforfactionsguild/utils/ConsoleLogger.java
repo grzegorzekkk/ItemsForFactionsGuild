@@ -47,4 +47,13 @@ public class ConsoleLogger {
     public static void debug(String msg) {
         log.fine(msg);
     }
+
+    /**
+     * Send severe log message to console
+     *
+     * @param msg Message to send as severe in console
+     */
+    public static void severe(String msg) {
+        log.severe(msg);
+    }
 }
